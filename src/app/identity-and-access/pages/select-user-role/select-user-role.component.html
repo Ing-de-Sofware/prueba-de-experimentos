@@ -1,0 +1,40 @@
+<!-- ✅ HEADER -->
+<header class="main-header">
+  <div class="header-left">
+    <img src="assets/images/logo.png" alt="HormonalCare Logo" class="logo" />
+    <span class="brand-title">HormonalCare</span>
+  </div>
+  <nav class="nav-links">
+    <a routerLink="/">Home</a>
+  </nav>
+  <div class="header-right">
+    <a routerLink="/login" class="register-link">Login</a>
+  </div>
+</header>
+
+<!-- ✅ SELECTOR BODY -->
+<section class="role-selector-wrapper">
+  <div class="role-title-box">
+    <h2>Select your user type</h2>
+    <p class="subtitle">Choose your profile to continue with registration</p>
+  </div>
+
+  <div class="roles-grid">
+    <div class="role-card" (click)="selectRole('patient')">
+      <img src="assets/images/paciente.png" alt="Patient" class="role-image" />
+      <h3>Patient</h3>
+      <p class="card-desc">Access hormonal monitoring and appointments with specialists.</p>
+      <button class="card-btn">Register as Patient</button>
+    </div>
+
+    <div class="role-card" (click)="selectRole('endocrinologist')">
+      <img src="assets/images/medico.png" alt="Endocrinologist" class="role-image" />
+      <h3>Endocrinologist</h3>
+      <p class="card-desc">Manage your patients, appointments, and treatment plans.</p>
+      <button class="card-btn">Register as Doctor</button>
+    </div>
+
+
+  </div>
+</section>
+

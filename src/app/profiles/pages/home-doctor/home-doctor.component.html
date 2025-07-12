@@ -1,0 +1,122 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <div class="content">
+      <h2 class="section-title">Today's patients</h2>
+
+      <!-- FECHA Y HORA ACTUAL -->
+      <div class="current-date-time">
+        {{ currentDate | date:'fullDate' }} — {{ currentDate | date:'HH:mm:ss' }}
+
+      </div>
+      <h2 class="welcome-message">👋 Hola, {{ doctorName }}. Bienvenido/a.</h2>
+
+      <div class="main-layout">
+
+        <!-- Tabla de pacientes -->
+        <div class="table-container">
+          <ng-container *ngIf="!isLoading; else loadingTable">
+            <table class="patients-table">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type of care</th>
+                <th>Hour</th>
+                <th>Diagnosis</th>
+                <th>Alert</th>
+                <th>Transfer</th>
+                <th>Video conference</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let patient of filteredPatients">
+                <td>
+                  <div class="patient-info">
+                    <img [src]="patient.image || 'https://via.placeholder.com/150'" alt="{{ patient.firstName }}" class="avatar" />
+                    <div>
+                      <div class="name">{{ patient.firstName }} {{ patient.lastName }}</div>
+                      <div class="age">{{ patient.age }} years</div>
+                    </div>
+                  </div>
+                </td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>
+                  <button class="transfer-btn" (click)="openTransferDialog(patient)">
+                    <mat-icon>sync_alt</mat-icon>
+                  </button>
+                </td>
+                <td>
+                  <button class="video-btn">
+                    <mat-icon>videocam</mat-icon>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </ng-container>
+          <ng-template #loadingTable>
+            <div style="text-align: center; padding: 40px 0;">
+              <mat-spinner diameter="50" strokeWidth="4"></mat-spinner>
+              <p style="margin-top: 10px;">Loading patients table...</p>
+            </div>
+          </ng-template>
+        </div>
+
+        <!-- Búsqueda lateral -->
+        <div class="side-search">
+          <input type="text" [(ngModel)]="searchTerm" placeholder="Find a patient" />
+
+          <ng-container *ngIf="!isLoading; else loadingSearch">
+            <div class="mini-patient" *ngFor="let patient of filteredPatients">
+              <img [src]="patient.image || 'https://via.placeholder.com/150'" class="mini-avatar" />
+              <div class="mini-info">
+                <strong>{{ patient.firstName }} {{ patient.lastName }}</strong>
+                <div class="mini-age">{{ patient.age }} years</div>
+                <div>
+                  <button class="tag-btn" [routerLink]="['/calendar/schedule-follow-up', patient.id]">
+                    Schedule follow-up
+                  </button>
+                  <button class="tag-btn" [routerLink]="['/medical-history/medical-history-page', patient.id]">
+                    Clinic history
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-template #loadingSearch>
+            <div style="margin-top: 30px; text-align: center;">
+              <mat-spinner diameter="40" strokeWidth="3"></mat-spinner>
+              <p style="margin-top: 10px;">Loading search results...</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📄 Panel de exámenes recientes -->
+    <div class="exam-panel">
+      <h2 class="section-title">Recent Patient Exams</h2>
+
+      <div *ngIf="exams.length === 0" class="empty-message">
+        No exams received yet.
+      </div>
+
+      <div *ngFor="let exam of exams" class="exam-card">
+        <div class="exam-info">
+          <strong>{{ exam.name }}</strong>
+          <p>Received: {{ exam.uploadedAt | date:'short' }}</p>
+          <p>Patient: Juan Pérez</p>
+        </div>
+        <div class="exam-action">
+          <a [href]="exam.url" [download]="exam.name" class="download-link">Download</a>
+          <button mat-icon-button color="warn" (click)="deleteExam(exam)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

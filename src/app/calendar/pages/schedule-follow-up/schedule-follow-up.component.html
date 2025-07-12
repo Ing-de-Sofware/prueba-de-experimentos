@@ -1,0 +1,48 @@
+<div class="main-container">
+  <h1>Schedule Appointment</h1>
+
+  <div class="content">
+
+    <!-- Patient Info -->
+    <div class="section patient-info">
+      <h2>Patient: {{ patientName }}</h2>
+      <p *ngIf="patientAge">Age: {{ patientAge }} years</p>
+      <p *ngIf="doctorName">Doctor: {{ doctorName }}</p> <!-- ✅ Mostramos el nombre del doctor -->
+    </div>
+
+    <!-- Patient Medication -->
+    <div class="section medication">
+      <h2>Patient Medication</h2>
+      <div *ngFor="let med of medications" class="pill">
+        <input type="checkbox" [(ngModel)]="selectedMedications[med]" />
+        <span>{{ med }}</span>
+      </div>
+    </div>
+
+    <!-- Exams to evaluate -->
+    <div class="section">
+      <h2>Exams to evaluate</h2>
+      <div class="card">
+        <div *ngFor="let exam of exams">
+          <input type="checkbox" [(ngModel)]="selectedExams[exam]" />
+          <label>{{ exam }}</label>
+        </div>
+      </div>
+
+      <!-- Schedule appointment -->
+      <h2>Schedule next appointment</h2>
+      <div class="card">
+        <input type="datetime-local" [(ngModel)]="selectedDateTime" />
+      </div>
+      <div *ngIf="showSuccessMessage" class="success-message">
+        La cita fue agendada exitosamente y se ha enviado una notificación al paciente.
+      </div>
+
+      <div class="actions">
+        <button class="schedule-btn" (click)="scheduleAppointment()">Confirm Appointment</button>
+        <button class="history-btn">View clinical history</button>
+      </div>
+
+    </div>
+  </div>
+</div>

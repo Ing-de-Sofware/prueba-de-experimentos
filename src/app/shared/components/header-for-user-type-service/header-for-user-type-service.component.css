@@ -1,0 +1,5 @@
+
+:host {
+  display: block;        /* ocupa su lugar en el flujo */
+  width: 100%;
+}

@@ -1,0 +1,67 @@
+<div class="profile-container">
+  <div class="header">
+    <button mat-icon-button class="back-btn">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2 class="doctor-name-header">
+      {{ doctor.name }}
+      <span title="Verified" class="verified-badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" style="vertical-align: middle;">
+          <circle cx="12" cy="12" r="12" fill="#e3f2fd"/>
+          <path d="M9.5 15.1l-3.6-3.6 1.4-1.4 2.2 2.2 5.3-5.3 1.4 1.4z" fill="#1976d2"/>
+        </svg>
+      </span>
+    </h2>
+    <button mat-raised-button color="warn" (click)="logout()">Sign out</button>
+  </div>
+
+  <div class="content">
+    <!-- FOTO -->
+    <div class="photo-section">
+      <img [src]="doctor.photoUrl || defaultPhoto" alt="Doctor photo">
+      <button mat-icon-button (click)="editPhoto()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <p>Edit photo</p>
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="form-section mat-elevation-z2">
+      <div class="field" *ngFor="let field of profileFields">
+        <label>{{ field.label }}</label>
+        <div class="input-icon">
+          <input [(ngModel)]="field.value" [readonly]="!field.editable" />
+          <button mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN Y CALENDARIO -->
+    <div class="plan-section">
+      <p><strong>Number of patients:</strong> {{ doctor.patients }}/5</p>
+      <button mat-raised-button color="accent" (click)="improvePlan()">Improve plan</button>
+      <p><strong>Appointment availability:</strong></p>
+      <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+      <button mat-icon-button (click)="editCalendar()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button (click)="configureCertificates()">
+      Configure certificates
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="configurePlan()">
+      Configure current plan
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="setUpNotification()">
+      Set up notification
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>

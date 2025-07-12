@@ -1,0 +1,23 @@
+<h2 class="support-title">Support Center</h2>
+
+<mat-tab-group [(selectedIndex)]="selectedTabIndex">
+  <mat-tab label="All Tickets">
+    <app-ticket-list [tickets]="mockTickets"></app-ticket-list>
+  </mat-tab>
+
+  <mat-tab label="Live Chat">
+    <app-live-chat></app-live-chat>
+  </mat-tab>
+
+  <mat-tab label="Knowledge Base">
+    <app-knowledge-base></app-knowledge-base>
+  </mat-tab>
+
+  <mat-tab label="Analytics">
+    <app-analytics></app-analytics>
+  </mat-tab>
+
+  <mat-tab label="Settings">
+    <app-settings></app-settings>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,118 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 64px); /* Ajusta si tu header es más alto o más bajo */
+}
+
+mat-sidenav-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3eef9;
+  margin-top: 64px;
+}
+
+mat-sidenav-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.notifications-container {
+  flex: 1;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TITULARES */
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #5b3573;
+}
+
+.subtitle {
+  margin-top: 40px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #5e35b1;
+}
+
+/* Tarjetas */
+.notification-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 6px 16px rgba(123, 66, 246, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+}
+
+.notification-card.announcement {
+  border-left: 5px solid #7e57c2;
+  background-color: #f9f6ff;
+}
+
+/* Avatar */
+.icon-avatar {
+  background-color: #e0d4f7;
+  color: #4a148c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botones */
+button[mat-icon-button] {
+  color: #b91c1c;
+  transition: transform 0.2s ease;
+}
+
+button[mat-icon-button]:hover {
+  transform: scale(1.2);
+}
+
+/* Espaciado */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Contenido especial */
+.highlighted-notification {
+  border-left: 5px solid #5b3573;
+  background-color: #f9f5ff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(91, 53, 115, 0.1);
+}
+
+.appointment-details {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #444;
+}
+
+.appointment-details span {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  margin-top: 50px;
+  font-size: 16px;
+}
+
+/* Header de las tarjetas */
+mat-card-header {
+  display: flex;
+  align-items: center;
+}

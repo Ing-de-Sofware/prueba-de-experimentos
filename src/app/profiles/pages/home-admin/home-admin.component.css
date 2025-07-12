@@ -1,0 +1,87 @@
+.home-admin-container {
+  min-height: calc(89.6vh - 110px);
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.welcome-section {
+  margin-bottom: 2rem;
+}
+.welcome-admin {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #4a148c;
+}
+
+.welcome-section h1 {
+  font-size: 2rem;
+  color: #6a1b9a;
+  margin-bottom: 0.5rem;
+}
+
+.session-info {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.welcome-section p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+}
+
+/* Títulos de secciones */
+.quick-actions h2,
+.quick-links h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #6a1b9a;
+}
+
+/* Unificamos el grid para ambas secciones */
+.action-buttons,
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+/* Botones generales */
+button[mat-raised-button] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.5rem;
+  text-transform: none;
+  min-width: 180px;
+  white-space: nowrap;
+}
+
+/* Íconos dentro de botones */
+button[mat-raised-button] mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+/* Dark mode ajustes */
+body.dark-mode .dashboard-main p {
+  color: #cfcfcf;
+}
+
+::ng-deep body.dark-mode .home-admin-container p,
+::ng-deep body.dark-mode .home-admin-container h1,
+::ng-deep body.dark-mode .home-admin-container h2,
+::ng-deep body.dark-mode .home-admin-container h3,
+::ng-deep body.dark-mode .home-admin-container span {
+  color: #ccc;
+}

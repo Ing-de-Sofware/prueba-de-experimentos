@@ -1,0 +1,153 @@
+.main-container {
+  background: #f8f8fc;
+  padding: 48px 32px;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #4b0082;
+  background: linear-gradient(90deg, #d3bdfa, #c2a5ff);
+  padding: 20px 32px;
+  border-radius: 16px;
+  font-size: 32px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.section {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 24px rgba(123, 66, 246, 0.12);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.section:hover {
+  box-shadow: 0 12px 28px rgba(123, 66, 246, 0.18);
+  transform: translateY(-2px);
+}
+
+.section h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 18px;
+}
+
+.pill {
+  background-color: #ede9fe;
+  color: #5b21b6;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pill:hover {
+  background-color: #ddd6fe;
+  transform: scale(1.01);
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 100%;
+  margin-top: 8px;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: #9d7fe9;
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+button {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 26px;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.confirm-btn {
+  background-color: #7b42f6;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #6936d1;
+  transform: scale(1.03);
+}
+
+.secondary-btn {
+  background-color: #f3edff;
+  color: #5b21b6;
+  border: 2px solid #7b42f6;
+}
+
+.secondary-btn:hover {
+  background-color: #e0d7ff;
+  transform: scale(1.03);
+}
+
+.confirmation-message {
+  margin-top: 24px;
+  padding: 18px 20px;
+  background-color: #e8f5e9;
+  border-left: 6px solid #43a047;
+  border-radius: 12px;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: opacity 0.3s ease;
+}
+
+.section .input-wrapper {
+  margin-top: 12px;
+}
+
+input[type="datetime-local"] {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  background-color: #fff;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+
+input[type="datetime-local"]:focus {
+  border-color: #7b42f6;
+  outline: none;
+}
