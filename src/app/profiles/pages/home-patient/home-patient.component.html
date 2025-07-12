@@ -1,5 +1,5 @@
 <h2 class="welcome-message">
-  👋 Hola, {{ patientName }}. Bienvenido/a a tu espacio de salud.
+  👋 {{ 'homePatient.welcome' | translate: {patientName: patientName} }}
 </h2>
 
 <!-- 🔽 Luego todo el contenido de recordatorios y tareas -->
@@ -8,13 +8,13 @@
     <mat-grid-tile>
       <div class="box1">
         <div class="part1">
-          <h2>Today's reminders</h2>
+          <h2>{{ 'homePatient.todayReminders' | translate }}</h2>
           <button mat-flat-button color="primary" routerLink="/calendar/appointments">
-            Your next appointment...
+            {{ 'homePatient.nextAppointment' | translate }}
           </button>
           <button mat-flat-button color="accent" routerLink="/profile/treatment-status" style="margin-left: 8px;">
             <mat-icon>medical_services</mat-icon>
-            Seguimiento de tratamiento
+            {{ 'homePatient.treatmentFollowUp' | translate }}
           </button>
         </div>
         <div class="part2">
@@ -26,23 +26,23 @@
     <mat-grid-tile>
       <div class="box2">
         <div class="part1">
-          <h2>Pending Tasks</h2>
+          <h2>{{ 'homePatient.pendingTasks' | translate }}</h2>
           <app-patients-pending-task></app-patients-pending-task>
         </div>
         <div class="part2">
           <div class="upload-exam-wrapper">
             <label for="examFile" class="upload-exam-button">
               <mat-icon>upload</mat-icon>
-              Upload your exams
+              {{ 'homePatient.uploadExams' | translate }}
             </label>
 
             <input type="file" id="examFile" (change)="onExamSelected($event)" hidden />
 
             <div *ngIf="selectedExam" class="exam-preview">
-              <p><strong>Selected file:</strong> {{ selectedExam.name }}</p>
+              <p><strong>{{ 'homePatient.selectedFile' | translate }}:</strong> {{ selectedExam.name }}</p>
 
               <button mat-flat-button color="primary" (click)="sendToDoctor()">
-                Send to Doctor
+                {{ 'homePatient.sendToDoctor' | translate }}
               </button>
             </div>
           </div>

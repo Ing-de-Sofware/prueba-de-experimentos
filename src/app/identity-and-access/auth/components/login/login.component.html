@@ -4,10 +4,10 @@
     <span class="brand-title">HormonalCare</span>
   </div>
   <nav class="nav-links">
-    <a routerLink="/">Home</a>
+    <a routerLink="/">{{ 'login.home' | translate }}</a>
   </nav>
   <div class="header-right">
-    <a class="register-link" routerLink="/selectRole">Register</a>
+    <a class="register-link" routerLink="/selectRole">{{ 'login.register' | translate }}</a>
   </div>
 </header>
 
@@ -16,24 +16,24 @@
   <div class="login-container">
     <!-- Left -->
     <div class="left-side">
-      <h1 class="title">Welcome to <span>HormonalCare</span></h1>
-      <p class="subtitle">Track your hormonal health with trusted specialists.</p>
+      <h1 class="title">{{ 'login.welcome' | translate }} <span>HormonalCare</span></h1>
+      <p class="subtitle">{{ 'login.subtitle' | translate }}</p>
       <img src="assets/images/personas.png" alt="Doctor Illustration" class="illustration" />
     </div>
 
     <!-- Right -->
     <mat-card class="login-card">
-      <h2>Log in</h2>
-      <p class="card-subtitle">Access your dashboard</p>
+      <h2>{{ 'login.logIn' | translate }}</h2>
+      <p class="card-subtitle">{{ 'login.accessDashboard' | translate }}</p>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
+          <mat-label>{{ 'login.email' | translate }}</mat-label>
           <input matInput formControlName="email" />
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
+          <mat-label>{{ 'login.password' | translate }}</mat-label>
           <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
           <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
             <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
@@ -41,8 +41,8 @@
         </mat-form-field>
 
         <div class="extras">
-          <mat-checkbox formControlName="remember">Remember me</mat-checkbox>
-          <a class="forgot" href="javascript:void(0)" (click)="goToForgotPassword()">Forgot password?</a>
+          <mat-checkbox formControlName="remember">{{ 'login.rememberMe' | translate }}</mat-checkbox>
+          <a class="forgot" href="javascript:void(0)" (click)="goToForgotPassword()">{{ 'login.forgotPassword' | translate }}</a>
         </div>
 
         <div class="captcha-container" style="margin: 1rem 0;">
@@ -52,15 +52,15 @@
             (resolved)="onCaptchaResolved($event)">
           </re-captcha>
         </div>
-        <button mat-raised-button color="primary" class="login-btn" type="submit">Enter</button>
+        <button mat-raised-button color="primary" class="login-btn" type="submit">{{ 'login.enter' | translate }}</button>
         <mat-error *ngIf="loginError" class="login-error">
-          Invalid email or password.
+          {{ 'login.loginError' | translate }}
         </mat-error>
       </form>
 
       <p class="register-text">
-        Don’t have an account?
-        <a class="register-link" routerLink="/selectRole">Register</a>
+        {{ 'login.noAccount' | translate }}
+        <a class="register-link" routerLink="/selectRole">{{ 'login.register' | translate }}</a>
       </p>
     </mat-card>
   </div>
