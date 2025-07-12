@@ -2,22 +2,30 @@
 
 :root {
   --primary-color: #ffffff;
-  --background-color: #f0f0f0;
-  --text-color: #000000;
+  --background-color: #f4f4f8;
+  --text-color: #333333;
   --card-background: #ffffff;
   --button-background: #3f51b5;
   --button-text: #ffffff;
   --link-color: #3f51b5;
+  --header-background: #3f51b5;
+  --header-text: #ffffff;
+  --input-background: #ffffff;
+  --input-border: #cccccc;
 }
 
 body.dark-mode {
-  --primary-color: #121212;
+  --primary-color: #1e1e2f;
   --background-color: #121212;
-  --text-color: #ffffff;
+  --text-color: #e0e0e0;
   --card-background: #1e1e1e;
   --button-background: #bb86fc;
   --button-text: #121212;
   --link-color: #bb86fc;
+  --header-background: #1e1e1e;
+  --header-text: #e0e0e0;
+  --input-background: #2a2a2a;
+  --input-border: #555555;
 }
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
@@ -30,20 +38,36 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   overflow: auto;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 a {
   color: var(--link-color);
 }
 
-.mat-mdc-button {
+.mat-mdc-button, button {
   color: var(--button-text);
   background-color: var(--button-background);
 }
 
-.mat-card {
+.mat-card, .card {
   background-color: var(--card-background);
   color: var(--text-color);
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--input-border);
+}
+
+input, .mat-input-element {
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border-color: var(--input-border);
+}
+
+header, .header {
+  background-color: var(--header-background);
+  color: var(--header-text);
 }
 
 .dark-mode-toggle {
@@ -65,6 +89,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 
