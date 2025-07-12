@@ -1,27 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-body {
-  overflow: auto;
+:root {
+  --primary-color: #ffffff;
+  --background-color: #f4f4f8;
+  --text-color: #333333;
+  --card-background: #ffffff;
+  --button-background: #3f51b5;
+  --button-text: #ffffff;
+  --link-color: #3f51b5;
+  --header-background: #3f51b5;
+  --header-text: #ffffff;
+  --input-background: #ffffff;
+  --input-border: #cccccc;
 }
+
 body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
+  --primary-color: #1e1e2f;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-background: #1e1e1e;
+  --button-background: #bb86fc;
+  --button-text: #121212;
+  --link-color: #bb86fc;
+  --header-background: #1e1e1e;
+  --header-text: #e0e0e0;
+  --input-background: #2a2a2a;
+  --input-border: #555555;
 }
 
-body.dark-mode a {
-  color: #bb86fc;
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: auto;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark-mode .mat-mdc-button {
-  color: #ffffff;
+a {
+  color: var(--link-color);
 }
 
-body.dark-mode .mat-card {
-  background-color: #1e1e1e;
-  color: #ffffff;
+.mat-mdc-button, button {
+  color: var(--button-text);
+  background-color: var(--button-background);
+}
+
+.mat-card, .card {
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--input-border);
+}
+
+input, .mat-input-element {
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border-color: var(--input-border);
+}
+
+header, .header {
+  background-color: var(--header-background);
+  color: var(--header-text);
 }
 
 .dark-mode-toggle {
@@ -32,8 +78,8 @@ body.dark-mode .mat-card {
 }
 
 .dark-mode-toggle button {
-  background-color: #bb86fc;
-  color: #121212;
+  background-color: var(--button-background);
+  color: var(--button-text);
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -43,6 +89,7 @@ body.dark-mode .mat-card {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 
