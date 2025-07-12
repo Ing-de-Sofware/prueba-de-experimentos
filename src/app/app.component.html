@@ -14,4 +14,9 @@
       {{ (darkModeService.darkMode$ | async) ? 'Light Mode' : 'Dark Mode' }}
     </button>
   </div>
+
+  <div class="language-switcher">
+    <button (click)="switchLang('en')">English</button>
+    <button (click)="switchLang('es')">Español</button>
+  </div>
 </div>

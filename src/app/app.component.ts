@@ -8,6 +8,7 @@ import {
 } from "./shared/components/header-for-user-type-service/header-for-user-type-service.component";
 import {FooterContentComponent} from "./public/components/footer-content/footer-content.component";
 import {DarkModeService} from "./shared/services/dark-mode.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ export class AppComponent {
     private userTypeService: UserTypeService,
     private router: Router,
     private darkModeService: DarkModeService,
+    public translate: TranslateService
   ) {
     this.userTypeService.userType$.subscribe(type => this.userType = type);
 
@@ -38,7 +40,15 @@ export class AppComponent {
         this.isAuthRoute = ['/login', '/register', '/forgot-password', '/selectRole'].some(route => path.startsWith(route));
 
       });
+
+    this.translate.addLangs(['en', 'es']);
+    this.translate.setDefaultLang('es');
   }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
+  }
+
   ngOnInit() {
     this.darkModeService.darkMode$.subscribe(isDark => {
       this.isDarkMode = isDark;
