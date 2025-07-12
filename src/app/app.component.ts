@@ -40,8 +40,14 @@ export class AppComponent {
       });
   }
   ngOnInit() {
-    const dark = localStorage.getItem('theme') === 'dark';
-    document.body.classList.toggle('dark-mode', dark);
+    this.darkModeService.darkMode$.subscribe(isDark => {
+      this.isDarkMode = isDark;
+      document.body.classList.toggle('dark-mode', isDark);
+    });
+  }
+
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
   }
 
   showMedicalHistoryPage: boolean = false;
