@@ -9,8 +9,9 @@
     <app-footer-content></app-footer-content>
   </ng-container>
 
-  <!-- 🔴 Botón de prueba de error
-  <button (click)="throwTestError()" style="margin: 20px; padding: 10px;">
-    Lanzar Error de Prueba Sentry
-  </button>-->
+  <div class="dark-mode-toggle">
+    <button (click)="toggleDarkMode()">
+      {{ (darkModeService.darkMode$ | async) ? 'Light Mode' : 'Dark Mode' }}
+    </button>
+  </div>
 </div>

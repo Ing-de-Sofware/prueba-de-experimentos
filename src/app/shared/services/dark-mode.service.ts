@@ -12,20 +12,15 @@ export class DarkModeService {
     this.updateBodyClass(isDark);
     return isDark;
   }
-  setDarkMode(enabled: boolean): void {
-    this.darkModeSubject.next(enabled);
-
-    if (enabled) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
+  setDarkMode(isDark: boolean): void {
+    this.darkModeSubject.next(isDark);
+    localStorage.setItem('dark-mode', String(isDark));
+    this.updateBodyClass(isDark);
   }
-  toggle(): void {
-    const current = !this.darkModeSubject.value;
-    this.darkModeSubject.next(current);
-    localStorage.setItem('dark-mode', String(current));
-    this.updateBodyClass(current);
+
+  toggleDarkMode(): void {
+    const currentValue = this.darkModeSubject.value;
+    this.setDarkMode(!currentValue);
   }
 
   get current(): boolean {
